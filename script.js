@@ -123,6 +123,30 @@ learner.assignments[assignment_id] = percentage
 learner.totalPoints += assignment.points_possible
 learner.totalWeightedPoints += score
 
+function getLearnerData(courseInfo, assignmentGroup, learnerSubmission) {
+    // here, we would process this data to achieve the desired result.
+    const result = [
+      {
+        id: 56,
+        avg: 1.0, // (152 + 200) / (135 + 200)
+        1: 0.76, // 152 / 200
+        2: .67 // 135 / 200
+      },
+      {
+        id: 67,
+        avg: 1.1, // (187 + 200) / (127 + 200)
+        1: 0.93, // 187 / 200
+        2: 0.57 // late: (127 - 13) / 200
+      }
+    ];
+  
+    return result;
+  }
+  
+  const result = getLearnerData(courseInfoourseInfo, assignmentGroup, learnerSubmission);
+  
+  console.log(result);
+
 
 
 
