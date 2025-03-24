@@ -2,7 +2,7 @@
 
 let courseInfo = {
     id: 4000
-    Coursename: 'History 301'
+    name: 'History 301'
 }
 
 let assignmentGroup = {
@@ -86,3 +86,11 @@ for (let i = 0; i < assignmentGroup.length; i++) {
         throw new Error('Assignment Group ${group.id} do not match ${courseInfo.id}')
     }
 }
+
+// For assignment group / assignments
+
+for (let i = 0; i < assignmentGroup.length; i++)
+    let group = assignmentGroup[i]
+for (let j = 0; j < group.assignments.length; j++)
+    let assignments = group.assignments[j]
+    
