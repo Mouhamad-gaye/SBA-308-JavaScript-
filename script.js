@@ -113,6 +113,17 @@ let dueDate = new Date(assignment.due_at)
 if(currentDate < dueDate){
     console.log('Not due yet')
 }
+let submissionTime = new Date(submission.submission_at) //check the submission time without penalty
+let score = submission.submission.score
+if (submissionTime > dueDate){
+    score -= assignment.points_possible * 0.1
+}
+let percentage = score / assignment.points_possible // how to calculate percentaga
+learner.assignments[assignment_id] = percentage
+learner.totalPoints += assignment.points_possible
+learner.totalWeightedPoints += score
+
+
 
 
     
