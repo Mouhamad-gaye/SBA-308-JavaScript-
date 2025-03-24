@@ -88,9 +88,31 @@ for (let i = 0; i < assignmentGroup.length; i++) {
 }
 
 // For assignment group / assignments
+let assignments = {}
 
 for (let i = 0; i < assignmentGroup.length; i++)
     let group = assignmentGroup[i]
 for (let j = 0; j < group.assignments.length; j++)
     let assignments = group.assignments[j]
+let assignments = group.assignments[j]
+if (typeof assignment.points_possible !== 'number' || assignments.points_possible <= 0){
+    console.log('Point possible is not valid for assignment')
+}
+
+let learnersData = {} //opem object for data store
+let currentDate = new Date() // will need regarding late submission or not due yet
+let learner = learnersData[learner_id]
+let {learner_id, assignment_id} = submission // extract
+let assignment = assignment[assignments_id] // assignment lookup
+
+
+for (let i = 0; i < learnerSubmission.length; i++){ // submission loop
+    let submission = learnerSubmission[i]
+}
+let dueDate = new Date(assignment.due_at)
+if(currentDate < dueDate){
+    console.log('Not due yet')
+}
+
+
     
