@@ -1,20 +1,20 @@
 // Given information
 
 let courseInfo = {
-    id: 4000
+    id: 4000,
     name: 'History 301'
 }
 
 let assignmentGroup = {
-    id: 308
-    name: 'KBA Exams'
-    course_id: 4000
-    Group Weight: 15
+    id: 308,
+    name: 'KBA Exams',
+    course_id: 4000,
+    GroupWeight: 15,
     assignments: [
         {
-            id: 1
-            name: 'The Thirteen Colonies'
-            due_at: '2025-02-01'
+            id: 1,
+            name: 'The Thirteen Colonies',
+            due_at: '2025-02-01',
             points_possible: 200
         },
         {
@@ -43,7 +43,7 @@ let learnerSubmission = [
             "submitted_at": '2025-01-30',
             "score": 152
         }
-    }
+    },
     {
         "learner_id": 56,
         "assignment_id": 2,
@@ -51,7 +51,7 @@ let learnerSubmission = [
             "submitted_at": '2025-03-10',
             "score": 135
         }
-    }
+    },
     {
         "learner_id": 56,
         "assignment_id": 3,
@@ -59,7 +59,7 @@ let learnerSubmission = [
             "submitted_at": '',
             "score": 320
         }
-    }
+    },
     {
         "learner_id": 67,
         "assignment_id": 1,
@@ -67,7 +67,7 @@ let learnerSubmission = [
             "submitted_at": '2025-02-01',
             "score": 187
         }
-    }
+    },
     {
         "learner_id": 67,
         "assignment_id": 2,
@@ -88,44 +88,46 @@ for (let i = 0; i < assignmentGroup.length; i++) {
 }
 
 // For assignment group / assignments
-let assignments = {}
+let assignment2 = {}
 
 for (let i = 0; i < assignmentGroup.length; i++)
-    let group = assignmentGroup[i]
-for (let j = 0; j < group.assignments.length; j++)
-    let assignments = group.assignments[j]
-let assignments = group.assignments[j]
-if (typeof assignment.points_possible !== 'number' || assignments.points_possible <= 0){
+    for (let j = 0; j < group.assignments.length; j++)
+if (typeof assignment2.points_possible !== 'number' || assignment2.points_possible <= 0){
     console.log('Point possible is not valid for assignment')
 }
 
-let learnersData = {} //opem object for data store
+//Learners Data
+
+// let learnersData = {} //opem object for data store
+// for (let i = 0; i < learnerSubmission.length; i++){ // submission loop
+//     let assignment = assignment.assignment[i]
+// }
+
 let currentDate = new Date() // will need regarding late submission or not due yet
-let learner = learnersData[learner_id]
-let {learner_id, assignment_id} = submission // extract
-let assignment = assignment[assignments_id] // assignment lookup
-
-
-for (let i = 0; i < learnerSubmission.length; i++){ // submission loop
-    let submission = learnerSubmission[i]
-}
-let dueDate = new Date(assignment.due_at)
+let dueDate = new Date(assignment2.due_at)
 if(currentDate < dueDate){
     console.log('Not due yet')
 }
-let submissionTime = new Date(submission.submission_at) //check the submission time without penalty
-let score = submission.submission.score
+let LearnerData = {}
+let learner_id = learnerSubmission
+if(!LearnerData[learner_id]){
+    LearnerData[learner_id] = {id: learner_id, assignment: {}, totalPoints: 0,totalWeightedPoints: 0}
+}
+let submission = {learner_id, assignment2}
+let learner = getLearnerData[learner_id]
+let submissionTime = new Date(submission.submitted_at) //check the submission time without penalty
+let score = submission.score
 if (submissionTime > dueDate){
-    score -= assignment.points_possible * 0.1
+    score -= assignment2.points_possible * 0.1
 }
 let percentage = score / assignment.points_possible // how to calculate percentaga
-learner.assignments[assignment_id] = percentage
+learner.assignments[assignment] = percentage
 learner.totalPoints += assignment.points_possible
 learner.totalWeightedPoints += score
 
 function getLearnerData(courseInfo, assignmentGroup, learnerSubmission) {
-    // here, we would process this data to achieve the desired result.
-    const result = [
+    
+    let result = [
       {
         id: 56,
         avg: 1.0, // (152 + 200) / (135 + 200)
@@ -143,7 +145,7 @@ function getLearnerData(courseInfo, assignmentGroup, learnerSubmission) {
     return result;
   }
   
-  const result = getLearnerData(courseInfoourseInfo, assignmentGroup, learnerSubmission);
+  let result = getLearnerData(courseInfo, assignmentGroup, learnerSubmission);
   
   console.log(result);
 
